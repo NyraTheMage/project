@@ -1,0 +1,61 @@
+body {
+    font-size: 15pt;
+    cursor: crosshair
+}
+
+
+
+.sidebar {
+  display: flex;
+  height: 100vh;
+  float: left;
+  background-color: #f4f4f4;
+  padding: 0px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+
+}
+
+.sidebar div {
+  padding: 5px;
+  margin: 5px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/*
+.sidebar div:hover {
+  background-color: #ddd;
+}*/
+
+.highlight {
+  background-color: blue;
+  color: white;
+}
+
+.toolbar {
+  width: 200px;
+
+}
+
+.layerbar {
+  background-color: lightblue;
+  width: 50px;
+}
+
+
+.layerbar div {
+  font-size: 12pt;
+  /*background-color: grey;*/
+  padding: 10px;
+  margin: 5px 0;
+}
+
+.mouseCircle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: red;
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+        }

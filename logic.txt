@@ -1,0 +1,45 @@
+
+
+
+
+
+
+random scripts > specicTools > main.js > index.html & toolbar.js
+
+specific tools modify canvas.
+
+
+TYPES OF CANVAS
+
+- rasterCanvas
+--- single layer canvas
+--- 🔧 rasterPenTool
+--- has own actionLog
+
+- svgCanvas (just 'canvas')
+--- multiLayer 
+--- 🔧 pencilTool : creates new shapes
+--- 🔧 propertiesTool : transform / style entire shapes
+--- delete shapes
+
+
+touchCanvas
+
+
+THOUGHTS ON ADJUSTING POINTS
+
+- aSelectTool
+--- upon click, displays all points in shape
+------ for each curve in shape, draw 4 points with ID `shapeID + [num from 1 to 4]`
+--- when point is moved, update the shape
+------ get id of UI point
+------ get curve (same id as UI point)
+------ check which point was moved.
+------ adjust corresponding point
+
+- movementTrackerTool
+--- keeps track of mouselocation
+--- when begin moving, cache existing values
+--- at each interval, 
+
+

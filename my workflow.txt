@@ -1,0 +1,84 @@
+1. sketch
+2. block out
+3. color
+4. detailing
+5. video editing
+
+
+0. basic UI
+	zooming
+	show toolbar
+
+
+1. raster canvas
+	pencil
+	eraser (basically pencil in white)
+
+2.1 pen tool OR pencil that gets cubic curve - lets go with pencil
+	begin line
+	draw first point
+	(plot line 
+	approximate curve
+	add curve)
+	start from point
+	end line 
+2.2 undo
+2.3 edit points (aMove - ignore vMove cos too cocmplex)
+	select path
+		show points
+	select point
+		highlight point
+		show handles
+	if point or handles move, reflect in drawing
+	if another point is selected...
+	if tap outside points> deselect
+2.4 mask with base
+	select base
+	select objects to trim
+	then for each... trim it
+
+5.1 functions should have record they were ran
+	`functionName ( ${input} )`
+5.2 store all elements created
+	allElementsCreated =  [] // array being a mix of lines and points
+
+
+
+const x = [0, 1, 2, 3, 4];
+const y = [2, 3, 5, 7, 11];
+
+// Perform cubic spline interpolation
+const spline = new Spline(x, y);
+const interpolatedValue = spline.at(2.5);
+console.log(interpolatedValue); // Output: 6
+
+
+
+
+
+thoughts on logic of cubic curves
+- ref
+--- https://blog.maximeheckel.com/posts/cubic-bezier-from-math-to-motion/
+--- https://en.wikipedia.org/wiki/De_Casteljau%27s_algorithm
+--- https://www.farinhansford.com/books/essentials-cagd/
+--- https://www.desmos.com/calculator/ebdtbxgbq0
+
+- first I have a lot of points
+- I also have the equation : P = (1-t)**3 * P0 + t*P1*(3*(1-t)**2) + P2*(3*(1-t)*t**2) + P3*t**3
+
+
+
+logic to avoid uneven point capture.
+- speed = (dy/dx) / time
+- density = points/ (dy/dx)
+
+- when slow: capture less points
+- when fast: capture more points
+
+- say I capture 1 point per second.
+--- in the beginning 5 secs, I travel 1m/ sec -> 5 points / 5m
+--- in the end 5 secs, I travel 5m/s -> 5 points / 25m
+--- variables
+------ capturing rate = points / sec = (1pt/m) * m/2 which is the speed
+------ travel speed = meter / sec
+------ say I set I want 1 point / meter

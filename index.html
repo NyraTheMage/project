@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>HTML</title>
+  
+  <!-- HTML -->
+  
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+  <!-- Project -->
+
+  <div id="topDiv"> this is a div</div>
+
+  <div class="mouseCircle" id="mouseCircle"></div>
+
+  <div>
+    <div class="sidebar">
+
+      <!-- layerbar -->
+      <div class="layerbar" >
+        <div onclick = "selectLayer('det')" id = 'det'> det </div>
+ 
+        <p> _____ </p>
+          <div onclick = "selectLayer('h-f')" id = 'h-f'> h-f </div>
+          <div onclick = "selectLayer('c-det')" id = 'c-det'> det </div>
+          <div onclick = "selectLayer('skn')" id = 'skn'> skn </div>
+          <div onclick = "selectLayer('bac')" id = 'bac'> bac </div>
+          <div onclick = "selectLayer('h-b')" id = 'h-b'> h-b </div>
+        <p> _____ </p>
+
+        <div onclick = "selectLayer('bg')" id = 'bg'> bg </div>
+        
+      </div>
+
+      <!-- toolbar -->
+      <div class="toolbar"> 
+        <div id="step1" >1. Sketch
+          <div id="sketchControls" class="controls-section" style="display: none;">
+              <button onclick="d_setMode('draw')">Draw</button>
+              <button onclick="d_setMode('erase')">Erase</button>
+              <div class="slider-container">
+                  <label for="nibSize">Size:</label>
+                  <input type="range" id="nibSize" min="1" max="50" value="2" oninput="d_setNibSize(this.value)">
+                  <span id="nibValue">2</span>
+              </div>
+          </div>
+        </div>
+
+        <div id="step2" onclick="setProcessStep('ps block out')">2. Block Out
+          <div id="blockOutControls" class="controls-section2" style="display: none;">
+              <div> 
+                <button id = "pencilColorToggle" onclick="pencilToggleColor()" > color </button>
+              </div>
+              <button onclick="deleteLastPencilStroke()"> delete last </button>
+              <button onclick="endPencilShape(true)">New shape (filled)</button>
+              <button onclick="endPencilShape(false)">New shape (no fill)</button>
+            </div>
+        </div>
+
+        <div id="step3" onclick="setProcessStep('ps select')">3. Select</div>
+        <div id="step4" onclick="setProcessStep('ps detailing')">4. Detailing</div>
+        <button onclick="d_downloadAllAsZip()"> export </button>
+        <button onclick="d_overwrite()"> import </button>
+      </div>
+    </div>
+
+    <div id="container" style="position: relative; float: left; margin-left: 50px; width: 600px; height: 600px;">
+
+    <!-- SVG -->
+    <svg width="600" height="600" id="canvas" style="position: absolute; top: 0; left: 0; z-index: 1; border: 2px dotted blue;">
+    </svg>
+
+
+    <!-- Raster Canvas -->
+    <canvas id="rasterCanvas" width="600" height="600" style="position: absolute; top: 0; left: 0; z-index: 2; border: 2px solid red">
+      Your browser does not support the canvas element.
+    </canvas>
+
+    <!-- Touch Canvas -->
+    <canvas id="touchCanvas" width="600" height="600" style="position: absolute; top: 0; left: 0; z-index: 3">
+      Your browser does not support the canvas element.
+    </canvas>
+
+  </div>
+<div>
+
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.9.1/jszip.min.js"></script>
+
+<script src="W_PointsToBezier.js"></script>
+<script src="W_ID.js"></script>
+
+<script src="BlockOut.js"></script>
+<script src="download.js"></script>
+
+
+<script src="main.js"></script>
+<script src="toolbar.js"></script>
+<script src="setup.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/14.0.1/math.js"
+ ></script>
+
+
+
+
+
+
+</html>
